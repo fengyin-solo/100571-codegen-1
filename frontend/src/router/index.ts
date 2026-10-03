@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Dashboard from '@/views/Dashboard.vue'
 const Substation = () => import('@/views/substation/index.vue')
 const Protectiondevice = () => import('@/views/protectiondevice/index.vue')
+const Sparepart = () => import('@/views/sparepart/index.vue')
+const Requisition = () => import('@/views/requisition/index.vue')
 const Settingvalue = () => import('@/views/settingvalue/index.vue')
 const Settingcheck = () => import('@/views/settingcheck/index.vue')
 const Secondarycircuit = () => import('@/views/secondarycircuit/index.vue')
@@ -26,6 +28,8 @@ const router = createRouter({
     { path: '/', name: 'dashboard', component: Dashboard },
     { path: '/substation', name: 'substation', component: Substation },
     { path: '/protectiondevice', name: 'protectiondevice', component: Protectiondevice },
+    { path: '/sparepart', name: 'sparepart', component: Sparepart },
+    { path: '/requisition', name: 'requisition', component: Requisition },
     { path: '/settingvalue', name: 'settingvalue', component: Settingvalue },
     { path: '/settingcheck', name: 'settingcheck', component: Settingcheck },
     { path: '/secondarycircuit', name: 'secondarycircuit', component: Secondarycircuit },
