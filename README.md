@@ -60,6 +60,7 @@ npm run build
 | 计量装置核查 | `meteringcheck` | 核查记录 | 核查编号、计量点名称、电能表编号 |
 | 定值审批 | `settingapprove` | 审批单 | 审批单号、关联定值单、审批层级 |
 | 安全工器具检定 | `safetytool` | 安全工器具 | 工器具编号、工器具名称、所属班组 |
+| 备品备件台账 | `sparepart` | 备品批次 | 库位、插件型号、库存数量、最低储备 |
 
 ## 约定
 
@@ -68,4 +69,7 @@ npm run build
 - 字段、状态、动作与流转目标集中在 `frontend/src/data/modules.ts`；示例数据在
   `frontend/src/data/seed.ts`。
 - 状态流转只允许在 `local-service.ts` 里改，页面组件不做业务判断。
+- 备品备件台账的领用、盘点、冻结流转在 `frontend/src/api/sparepart-service.ts`：库存数量只有
+  `sparepart` 一份，领用单按先入先出从中扣减，同一张领用单重复提交只入账一笔，账实冲突以最近一次盘点为准，
+  领用通过会同步一条待处理缺陷到 `defect`。
 - 想回到初始数据：清掉浏览器里 `substation-protection:entries` 这一项，或调用 `resetModule(模块)`。

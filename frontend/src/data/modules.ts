@@ -200,6 +200,17 @@ export const MODULES: ModuleMeta[] = [
     actionTargets: {"提交检定": "检定中", "判定合格": "检定合格", "报废工器具": "已报废"},
     metrics: ["待检定工器具", "检定合格工器具", "已报废工器具"],
   },
+  {
+    key: "sparepart",
+    name: "备品备件台账",
+    entity: "备品批次",
+    desc: "按库位登记保护插件批次，跟踪库存数量与最低储备，低于储备下限的单独归到最前一组，领用按先入先出扣减。",
+    fields: ["库位", "插件型号", "批次号", "入库日期", "库存数量", "最低储备", "储备状态"],
+    statuses: ["可领用", "储备不足", "已冻结"],
+    actions: ["登记入库", "冻结批次", "解冻批次"],
+    actionTargets: {"登记入库": "可领用", "冻结批次": "已冻结", "解冻批次": "可领用"},
+    metrics: ["可领用批次", "储备不足批次", "已冻结批次"],
+  },
 ]
 
 export const MODULE_BY_KEY: Map<string, ModuleMeta> = new Map(
